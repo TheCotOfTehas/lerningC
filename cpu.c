@@ -35,6 +35,11 @@ void SUB(uint8_t * a, uint8_t * b)
 {
     *a =  *a - *b;  
 }
+
+void MOV(uint8_t * a, uint8_t b)
+{
+    *a = b;
+}
 /*
     0 	HLT 	нет Конец программы, стоп (halt)
     1 	ADD 	reg1 reg2 	Сложить числа из регистров reg1 и reg2, результат записать в reg1
