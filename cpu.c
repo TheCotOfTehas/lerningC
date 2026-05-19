@@ -6,22 +6,23 @@ void ADD(uint8_t *, uint8_t *);
 void SUB(uint8_t *, uint8_t *);
 void MOV(uint8_t *, uint8_t );
 void IR();
-uint8_t cpu[4];
+uint8_t ram[4];
 
 int main() 
 {
-    uint8_t * A = &cpu[0];
-    uint8_t * B = &cpu[1];
-    uint8_t * C = &cpu[2];
-    uint8_t * D = &cpu[3];
-
+    uint8_t * A = &ram[0];
+    uint8_t * B = &ram[1];
+    uint8_t * C = &ram[2];
+    uint8_t * D = &ram[3];
+    uint8_t cur;
+    scanf("%d",&cur);
     return 0;
 }
 
 void IR()
 {
     for (size_t i = 0; i < 4; i++)
-        printf("%d", cpu[i]); 
+        printf("%d", ram[i]); 
 
     printf("\n");
 }
