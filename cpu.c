@@ -37,24 +37,15 @@ int main()
 
 
 
-/*void readerCommand(void)
+void readerCommand(void)
 {
     int command;
-    scanf("%d",&command);
-    switch (command) 
-    {
-        case 0: HLT(); 
-            break;
-        case 1: ADD(&ram[0], &ram[1]); 
-            break;
-        case 2: SUB(&ram[0], &ram[1]); 
-            break;
-        case 3: MOV(&ram[0], 42);    
-            break;
-        case 4: IR();                
-            break;
-    }
-}*/
+    scanf("%d", &command);
+    if (command >= 0 && command < 5)
+        cpu[command]();
+    else
+        printf("invalid command\n");
+}
 
 void HLT()
 {
