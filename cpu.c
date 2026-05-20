@@ -10,24 +10,22 @@ void MOV(uint8_t *, uint8_t );
 void IR();
 
 //Команды обёртки для масива функций CPU
-void wrap_HLT(void);
-void wrap_IR(void);
 void wrap_ADD(void);
 void wrap_SUB(void);
 void wrap_MOV(void);
 
 void readerCommand(void);
 bool stop = false; //влаг для остановки программы
-uint8_t ram[4];
+uint8_t ram[4]; 
 void (*cpu[5])(void);
 
 int main() 
 {
-    cpu[0] = wrap_HLT;
+    cpu[0] = HLT;
     cpu[1] = wrap_ADD;
     cpu[2] = wrap_SUB;
     cpu[3] = wrap_MOV;
-    cpu[4] = wrap_IR;
+    cpu[4] = IR;
 
     while (!stop)
         readerCommand();
@@ -65,12 +63,36 @@ void ADD(uint8_t * a, uint8_t * b)
     *a =  *a + *b;  
 }
 
+void wrap_ADD(void)
+{
+    int a, b;
+    scanf("%d",&a);
+    scanf("%d",&b);
+    ADD(&ram[a], &ram[b]);
+}
+
 void SUB(uint8_t * a, uint8_t * b)
 {
     *a =  *a - *b;  
 }
 
+void wrap_SUB(void)
+{
+    int a, b;
+    scanf("%d",&a);
+    scanf("%d",&b);
+    SUB(&ram[a], &ram[b]);
+}
+
 void MOV(uint8_t * a, uint8_t b)
 {
     *a = b;
+}
+
+void wrap_MOV(void)
+{
+    int a, b;
+    scanf("%d",&a);
+    scanf("%d",&b);
+    MOV(&ram[a], b);
 }
