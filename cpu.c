@@ -69,8 +69,8 @@ void wrap_ADD(void)
     int a, b;
     scanf("%d",&a);
     scanf("%d",&b);
-    a--;
-    b--;
+    a -= 5;
+    b -= 5;
     ADD(&ram[a], &ram[b]);
 }
 
@@ -84,8 +84,8 @@ void wrap_SUB(void)
     int a, b;
     scanf("%d",&a);
     scanf("%d",&b);
-    a--;
-    b--;
+    a -= 5;
+    b -= 5;
     SUB(&ram[a], &ram[b]);
 }
 
@@ -99,6 +99,6 @@ void wrap_MOV(void)
     int a, b;
     scanf("%d",&a);
     scanf("%d",&b);
-    a--;
+    a -= 5;
     MOV(&ram[a], b);
 }
