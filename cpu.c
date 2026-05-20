@@ -19,16 +19,16 @@ void wrap_MOV(void);
 void readerCommand(void);
 bool stop = false; //влаг для остановки программы
 uint8_t ram[4];
-void (*ops[5])(void);
+void (*cpu[5])(void);
 
 int main() 
 {
-    ops[0] = wrap_HLT;
-    ops[1] = wrap_ADD;
-    ops[2] = wrap_SUB;
-    ops[3] = wrap_MOV;
-    ops[4] = wrap_IR;
-    
+    cpu[0] = wrap_HLT;
+    cpu[1] = wrap_ADD;
+    cpu[2] = wrap_SUB;
+    cpu[3] = wrap_MOV;
+    cpu[4] = wrap_IR;
+
     while (!stop)
         readerCommand();
     
