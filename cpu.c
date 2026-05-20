@@ -39,6 +39,7 @@ void readerCommand(void)
 {
     int command;
     scanf("%d", &command);
+    command--;
     if (command >= 0 && command < 5)
         cpu[command]();
     else
@@ -68,6 +69,8 @@ void wrap_ADD(void)
     int a, b;
     scanf("%d",&a);
     scanf("%d",&b);
+    a--;
+    b--;
     ADD(&ram[a], &ram[b]);
 }
 
@@ -81,6 +84,8 @@ void wrap_SUB(void)
     int a, b;
     scanf("%d",&a);
     scanf("%d",&b);
+    a--;
+    b--;
     SUB(&ram[a], &ram[b]);
 }
 
@@ -94,5 +99,6 @@ void wrap_MOV(void)
     int a, b;
     scanf("%d",&a);
     scanf("%d",&b);
+    a--;
     MOV(&ram[a], b);
 }
