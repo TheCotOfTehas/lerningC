@@ -2,25 +2,42 @@
 #include <stdint.h>
 #include <stdbool.h>
 
+//Основные команды их бы в отдельный файл запихнуть
 void HLT();
 void ADD(uint8_t *, uint8_t *);
 void SUB(uint8_t *, uint8_t *);
 void MOV(uint8_t *, uint8_t );
 void IR();
+
+//Команды обёртки для масива функций CPU
+void wrap_HLT(void);
+void wrap_IR(void);
+void wrap_ADD(void);
+void wrap_SUB(void);
+void wrap_MOV(void);
+
 void readerCommand(void);
 bool stop = false; //влаг для остановки программы
 uint8_t ram[4];
-uint8_t cpu[5];
+void (*ops[5])(void);
 
 int main() 
 {
+    ops[0] = wrap_HLT;
+    ops[1] = wrap_ADD;
+    ops[2] = wrap_SUB;
+    ops[3] = wrap_MOV;
+    ops[4] = wrap_IR;
+    
     while (!stop)
         readerCommand();
     
     return 0;
 }
 
-void readerCommand(void)
+
+
+/*void readerCommand(void)
 {
     int command;
     scanf("%d",&command);
@@ -37,7 +54,8 @@ void readerCommand(void)
         case 4: IR();                
             break;
     }
-}
+}*/
+
 void HLT()
 {
     stop = true;
