@@ -39,7 +39,6 @@ void readerCommand(void)
 {
     int command;
     scanf("%d", &command);
-    command--;
     if (command >= 0 && command < 5)
         cpu[command]();
     else
