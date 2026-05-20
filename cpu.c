@@ -53,7 +53,7 @@ void HLT()
 void IR()
 {
     for (size_t i = 0; i < 4; i++)
-        printf("%d", ram[i]); 
+        printf("%d ", ram[i]); 
 
     printf("\n");
 }
