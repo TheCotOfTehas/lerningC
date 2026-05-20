@@ -14,6 +14,9 @@ uint8_t cpu[5];
 
 int main() 
 {
+    while (!stop)
+        readerCommand();
+    
     return 0;
 }
 
