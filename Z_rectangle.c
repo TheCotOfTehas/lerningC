@@ -3,7 +3,7 @@
 
 void ReadPlan(int size, char matrix[size][size]);
 void PrintPlan(int size, char matrix[size][size]);
-int GetSquare(int x,  int y, int size,char matrix[size][size]);
+int GetSquare(int x,  int y, int size, char matrix[size][size]);
 void FillRectangel(int x,  int y, int size,char matrix[size][size]);
 int GetMaxSquare(int size, char matrix[size][size]);
 
@@ -14,7 +14,7 @@ int main()
     scanf("%d", &size);
     char matrix[size][size];
     ReadPlan(size, matrix);
-    max = GetMaxSquare(size, matrix[size][size]);
+    max = GetMaxSquare(size, matrix);
     //PrintPlan(size, matrix);
     printf("%d", max);
 }
@@ -30,14 +30,17 @@ int GetMaxSquare(int size, char matrix[size][size])
         {
             if(matrix[i][j] == '*')
             {
-                tempMax = GetSquare(i,  j, size, matrix[size][size]);
-                FillRectangel(i,  j, size, matrix[size][size]);
+                tempMax = GetSquare(i,  j, size, matrix);
+                FillRectangel(i,  j, size, matrix);
                 max = max > tempMax ? max : tempMax;
             }
 
         }    
     }
+
+    return max;
 }
+
 int GetSquare(int x,  int y, int size,char matrix[size][size])
 {
     int widht = 0;
@@ -47,7 +50,7 @@ int GetSquare(int x,  int y, int size,char matrix[size][size])
     {
         if (matrix[i][y] == '*')
         {
-            widht++
+            widht++;
         }
         else
         {
@@ -60,7 +63,7 @@ int GetSquare(int x,  int y, int size,char matrix[size][size])
     {
         if (matrix[x][j] == '*')
         {
-            length++
+            length++;
         }
         else
         {
